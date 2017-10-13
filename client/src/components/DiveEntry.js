@@ -18,4 +18,5 @@ class DiveEntry extends Component {
   }
 }
 
+
 export default DiveEntry;
