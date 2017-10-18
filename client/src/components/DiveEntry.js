@@ -4,16 +4,16 @@ import '../styles/App.css';
 
 class DiveEntry extends Component {
   render() {
-    const details = this.props.details
+    const {details, index}  = this.props;
     return (
       <div className="App">
-        <li>Dive No: {this.props.index + 1}</li>
+        <li>Dive No: {index + 1}</li>
         <li>Dive Site: {details.dive_site}, {details.location}</li>
         <li>Depth: {details.depth} </li>
         <li>Time: {details.time} </li>
         <li>Visability: {details.visability}</li>
         <li>Notes: {details.notes} </li>
-        <button onClick={() => this.props.removeDive(this.props.index)}>Remove Dive</button>
+        <button onClick={() => this.props.removeDive(index)}>Remove Dive</button>
       </div>
     );
   }

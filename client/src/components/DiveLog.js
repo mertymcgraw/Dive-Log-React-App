@@ -36,7 +36,7 @@ class DiveLog extends Component {
 
   removeDive(index) {
     const dives = [...this.state.dives];
-    delete dives[index] 
+    dives.splice(index, 1);
     this.setState({ dives });
 
   }
