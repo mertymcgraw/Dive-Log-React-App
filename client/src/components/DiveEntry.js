@@ -7,12 +7,13 @@ class DiveEntry extends Component {
     const details = this.props.details
     return (
       <div className="App">
-        <li>Dive No: {this.props.dive_no}</li>
+        <li>Dive No: {this.props.index + 1}</li>
         <li>Dive Site: {details.dive_site}, {details.location}</li>
         <li>Depth: {details.depth} </li>
         <li>Time: {details.time} </li>
         <li>Visability: {details.visability}</li>
         <li>Notes: {details.notes} </li>
+        <button onClick={() => this.props.removeDive(this.props.index)}>Remove Dive</button>
       </div>
     );
   }
