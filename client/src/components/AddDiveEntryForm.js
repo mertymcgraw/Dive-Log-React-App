@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 class AddDiveEntryForm extends Component {
   createDiveEntry(event){
     event.preventDefault();
-    console.log("gonna make a new dive")
 
     const dive = {
       location: this.location.value,

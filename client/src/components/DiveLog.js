@@ -10,7 +10,7 @@ class DiveLog extends Component {
     super();
 
     this.addDive = this.addDive.bind(this);
-    // this.updateDive = this.updateDive.bind(this);
+    this.editDive = this.editDive.bind(this);
     this.removeDive = this.removeDive.bind(this);
  
     // initial state
@@ -28,11 +28,13 @@ class DiveLog extends Component {
     this.setState({ dives });
   }
 
-  // updateDive(index, dive){
-  //   const dives = [...this.state.dives];
-  //   dives[index] = updatedDive;
-  //   this.setState({ dives });
-  // }
+  editDive(index, new_dive_details){
+    console.log(index)
+    console.log(new_dive_details)
+    const dives = [...this.state.dives];
+    dives[index] = new_dive_details;
+    this.setState({ dives });
+  }
 
   removeDive(index) {
     const dives = [...this.state.dives];
@@ -43,7 +45,7 @@ class DiveLog extends Component {
 
   render() {
     const displayDives = this.state.dives.map((dive, index) => {
-      return <DiveEntry key={index} index={index} details={this.state.dives[index]} removeDive={this.removeDive} 
+      return <DiveEntry key={index} index={index} details={this.state.dives[index]} removeDive={this.removeDive} editDive={this.editDive}
       />
     })
     
