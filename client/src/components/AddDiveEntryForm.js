@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 class AddDiveEntryForm extends Component {
   createDiveEntry(event){
     event.preventDefault();
-    console.log("gonna make a new dive")
 
     const dive = {
       location: this.location.value,
@@ -26,7 +25,7 @@ class AddDiveEntryForm extends Component {
         <input ref={(input) => this.depth = input} type="number" placeholder="depth"/>
         <input ref={(input) => this.time = input} type="number" placeholder="Dive Time in mins"/>
         <input ref={(input) => this.visibility = input} type="number" placeholder="Visibility"/>
-        <input ref={(input) => this.notes = input} type="text-field" placeholder="Notes"/>
+        <textarea ref={(input) => this.notes = input} type="text-field" placeholder="Notes"/>
         <button type="submit"> + Add Dive </button>
       </form>
     );
