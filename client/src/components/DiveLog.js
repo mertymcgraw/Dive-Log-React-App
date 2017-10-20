@@ -29,19 +29,14 @@ class DiveLog extends Component {
     }
 
 
-  
-
-
-  componentWillUnmount(){
-    //stop syncing when go to another user's log
-  }
-
   addDive(dive){
     //update our state
     const dives = [...this.state.dives];
     dives.push(dive);
     //set state
     this.setState({ dives });
+    //send post request
+    axios.post('/dive_entries', dive)
   }
 
   editDive(index, new_dive_details){
