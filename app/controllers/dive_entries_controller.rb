@@ -9,11 +9,13 @@ class DiveEntriesController < ApplicationController
   def create
     @dive_entry = DiveEntry.new(dive_entry_params)
     @dive_entry.save
+    render json: @dive_entry
   end
 
 
-  def delete
-    
+  def destroy
+    @dive_entry = DiveEntry.find(params[:id])
+    @dive_entry.destroy
   end 
 
   private

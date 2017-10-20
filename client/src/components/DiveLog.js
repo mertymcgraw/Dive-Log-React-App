@@ -30,13 +30,14 @@ class DiveLog extends Component {
 
 
   addDive(dive){
-    //update our state
-    const dives = [...this.state.dives];
-    dives.push(dive);
-    //set state
-    this.setState({ dives });
     //send post request
     axios.post('/dive_entries', dive)
+    .then((response) => {
+    //update state
+     const dives = [...this.state.dives];
+      dives.push(response.data);
+    this.setState({ dives });
+      })
   }
 
   editDive(index, new_dive_details){
@@ -47,10 +48,12 @@ class DiveLog extends Component {
     this.setState({ dives });
   }
 
-  removeDive(index) {
+  removeDive(details, index) {
     const dives = [...this.state.dives];
     dives.splice(index, 1);
     this.setState({ dives });
+    console.log('/dive_entries/' + details.id)
+    axios.delete('/dive_entries/' + details.id)
 
   }
 
