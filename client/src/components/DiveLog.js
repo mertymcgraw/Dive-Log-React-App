@@ -20,6 +20,14 @@ class DiveLog extends Component {
 
   };
 
+  componentWillMount(){
+    //sync state
+  }
+
+  componentWillUnmount(){
+    //stop syncing when go to another user's log
+  }
+
   addDive(dive){
     //update our state
     const dives = [...this.state.dives];
