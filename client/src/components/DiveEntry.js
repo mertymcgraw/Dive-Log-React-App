@@ -17,7 +17,6 @@ class DiveEntry extends Component {
   }
 
 
-
   toggleState(){
     const { isEditing } = this.state;
     this.setState({
@@ -42,7 +41,7 @@ class DiveEntry extends Component {
   }
 
     renderForm(){
-    const { details, index }  = this.props;
+    const { details }  = this.props;
       return (
         <form onSubmit={this.updateDiveEntry}>
           <input type="text" ref={(input) => this.location = input} defaultValue={details.location}/>
@@ -67,13 +66,13 @@ class DiveEntry extends Component {
           <li>Visability: {details.visibility}</li>
           <li>Notes: {details.notes} </li>
           <button onClick={() => this.toggleState()}>Edit</button>
-          <button onClick={() => this.props.removeDive(index)}>Remove Dive</button>
+          <button onClick={() => this.props.removeDive(details, index)}>Remove Dive</button>
         </div>
       )
     }
 
   render() {
-    const { details, index }  = this.props;
+    
     const { isEditing } = this.state;
     return (
       <div className="App">

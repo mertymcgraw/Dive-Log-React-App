@@ -1,0 +1,2 @@
+class DiveEntry < ApplicationRecord
+end
