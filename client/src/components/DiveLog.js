@@ -41,8 +41,14 @@ class DiveLog extends Component {
   }
 
   editDive(index, new_dive_details){
-    console.log(index)
-    console.log(new_dive_details)
+
+    // axios.put('/dive_entries', )
+    // .then((response) => {
+    // //update state
+    //  const dives = [...this.state.dives];
+    //   dives.push(response.data);
+    // this.setState({ dives });
+    //   })
     const dives = [...this.state.dives];
     dives[index] = new_dive_details;
     this.setState({ dives });

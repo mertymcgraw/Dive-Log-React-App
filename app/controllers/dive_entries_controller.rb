@@ -12,6 +12,12 @@ class DiveEntriesController < ApplicationController
     render json: @dive_entry
   end
 
+  def edit
+    @dive_entry = DiveEntry.find(params[:id])
+    
+    
+  end 
+
 
   def destroy
     @dive_entry = DiveEntry.find(params[:id])
