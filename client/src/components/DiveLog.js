@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import '../styles/App.css';
 
@@ -21,8 +22,15 @@ class DiveLog extends Component {
   };
 
   componentWillMount(){
-    //sync state
-  }
+    axios.get('http://localhost:3001/')
+      .then((response) => {
+        this.setState({dives: response.data}) 
+      });
+    }
+
+
+  
+
 
   componentWillUnmount(){
     //stop syncing when go to another user's log

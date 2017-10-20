@@ -42,7 +42,7 @@ class DiveEntry extends Component {
   }
 
     renderForm(){
-    const { details, index }  = this.props;
+    const { details }  = this.props;
       return (
         <form onSubmit={this.updateDiveEntry}>
           <input type="text" ref={(input) => this.location = input} defaultValue={details.location}/>
@@ -73,7 +73,7 @@ class DiveEntry extends Component {
     }
 
   render() {
-    const { details, index }  = this.props;
+    
     const { isEditing } = this.state;
     return (
       <div className="App">
