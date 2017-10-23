@@ -1,7 +1,7 @@
 class DiveEntriesController < ApplicationController
   def index
-    @dive_entries = DiveEntry.all
-
+    @dive_entries = DiveEntry.all.order(:id)
+    
     render json: @dive_entries
 
   end 
@@ -12,10 +12,12 @@ class DiveEntriesController < ApplicationController
     render json: @dive_entry
   end
 
-  def edit
+  def update
     @dive_entry = DiveEntry.find(params[:id])
-    
-    
+    @dive_entry.update_attributes(dive_entry_params)
+    @dive_entry.save
+  
+     render json: @dive_entry
   end 
 
 

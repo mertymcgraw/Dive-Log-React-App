@@ -26,15 +26,13 @@ class DiveEntry extends Component {
 
    updateDiveEntry(event){
     event.preventDefault();
-    const new_dive = {
-      location: this.location.value,
-      dive_site: this.dive_site.value,
-      depth: this.depth.value,
-      time: this.time.value,
-      visibility: this.visibility.value,
-      notes: this.notes.value
-
-    }
+    const new_dive = this.props.details
+      new_dive.location = this.location.value
+      new_dive.dive_site = this.dive_site.value
+      new_dive.depth = this.depth.value
+      new_dive.time = this.time.value
+      new_dive.visibility = this.visibility.value
+      new_dive.notes = this.notes.value
 
     this.props.editDive(this.props.index, new_dive)
     this.toggleState()
