@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../styles/App.css';
+import '../styles/DiveEntry.css';
 
 class DiveEntry extends Component {
   constructor(){
@@ -56,15 +56,24 @@ class DiveEntry extends Component {
     renderDiveEntry(){
     const { details, index }  = this.props;
       return(
-        <div>
-          <li>Dive No: {index + 1}</li>
-          <li>Dive Site: {details.dive_site}, {details.location}</li>
-          <li>Depth: {details.depth} </li>
-          <li>Time: {details.time} </li>
-          <li>Visability: {details.visibility}</li>
-          <li>Notes: {details.notes} </li>
-          <button onClick={() => this.toggleState()}>Edit</button>
-          <button onClick={() => this.props.removeDive(details, index)}>Remove Dive</button>
+        <div className="dive-entry">
+          <div className="dive-thumb">
+          </div>
+          <div className="dive-details">
+            <div className="primary-dive-details">
+              <li className="dive-site"> {details.dive_site}</li>
+              <li className="dive-location">{details.location}</li>
+              <li>Dive No: {index + 1}</li>
+            </div>
+            <div className="secondary-dive-details">
+              <li>Depth: {details.depth} </li>
+              <li>Time: {details.time} </li>
+              <li>Visability: {details.visibility}</li>
+              <li>Notes: {details.notes} </li>
+            </div>
+            <button onClick={() => this.toggleState()}>Edit</button>
+            <button onClick={() => this.props.removeDive(details, index)}>Remove Dive</button>
+            </div>
         </div>
       )
     }
