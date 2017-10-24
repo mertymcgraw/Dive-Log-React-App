@@ -43,7 +43,7 @@ class DiveEntry extends Component {
       return (
         <form onSubmit={this.updateDiveEntry}>
           <input type="text" ref={(input) => this.location = input} defaultValue={details.location}/>
-          <input type="text" ref={(input) => this.dive_site = input} defaultValue={details.dive_site}/>
+          <input type="text" ref={(input) => this.dive_site = input} defaultValue= {details.dive_site}/>
           <input type="number" ref={(input) => this.depth = input} defaultValue={details.depth}/>
           <input type="number" ref={(input) => this.time = input} defaultValue={details.time}/>
           <input type="number" ref={(input) => this.visibility = input} defaultValue={details.visibility}/>
@@ -58,6 +58,7 @@ class DiveEntry extends Component {
       return(
         <div className="dive-entry">
           <div className="dive-thumb">
+            <img src={details.image}/>
           </div>
           <div className="dive-details">
             <div className="primary-dive-details">
@@ -71,9 +72,10 @@ class DiveEntry extends Component {
               <li>Visability: {details.visibility}</li>
               <li>Notes: {details.notes} </li>
             </div>
-            <button onClick={() => this.toggleState()}>Edit</button>
-            <button onClick={() => this.props.removeDive(details, index)}>Remove Dive</button>
-            </div>
+            
+          </div>
+            <button className="delete-dive" onClick={() => this.props.removeDive(details, index)}>X</button>
+            <button className="edit-dive" onClick={() => this.toggleState()}>Edit</button>
         </div>
       )
     }

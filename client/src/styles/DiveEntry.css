@@ -8,7 +8,7 @@
   width: 40%;
   margin: auto;
   text-align: left;
-  
+
 }
 
  ul {
@@ -40,7 +40,26 @@
   display: none;
 }
 
-.dive-entry:hover .secondary-dive-details {
+.dive-details:hover .secondary-dive-details {
   display: block
+}
+
+.dive-entry button {
+  vertical-align: top;
+  float: right;
+  border: none;
+  background: none;
+  padding: 3px;
+}
+
+.delete-dive:hover{
+  color: red;
+  font-size: 10pt;
+
+}
+
+.edit-dive:hover{
+  color: blue;
+  font-size: 10pt;
 }
 

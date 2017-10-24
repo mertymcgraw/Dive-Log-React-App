@@ -8,6 +8,8 @@ class DiveEntriesController < ApplicationController
 
   def create
     @dive_entry = DiveEntry.new(dive_entry_params)
+    #generate random image for now, will implement uploading later
+    @dive_entry.image = @dive_entry.random_image
     @dive_entry.save
     render json: @dive_entry
   end
