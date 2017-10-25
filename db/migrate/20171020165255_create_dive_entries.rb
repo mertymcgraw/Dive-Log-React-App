@@ -7,6 +7,7 @@ class CreateDiveEntries < ActiveRecord::Migration[5.1]
       t.integer :time, null: false
       t.integer :visibility, default: 0
       t.text :notes, default: ""
+      t.string :image, default: "images/giant_stride.png"
 
       t.timestamps
     end

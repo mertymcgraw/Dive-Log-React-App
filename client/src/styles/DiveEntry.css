@@ -1,0 +1,129 @@
+
+.dive-entry{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  color: #9B9B9B;
+  border-bottom: 1px solid grey;
+  padding: 5px;
+  width: 40%;
+  min-width: 400px;
+  margin: auto;
+  text-align: left;
+
+}
+
+ ul {
+  list-style-type: none;
+}
+
+.dive-thumb{
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: lightgrey;
+}
+
+.dive-details{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 50px;
+  margin-top: 10px;
+
+}
+.dive-site{
+  color: #4A4A4A;
+  font-weight: bold;
+  font-size: 16pt;
+
+}
+
+
+
+.dive-details-modal{
+  background-color: rgba(0,0,0,0.4);
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto;
+}
+
+.modal-content{
+  background: white;
+  margin: 15% auto; 
+  width: 40%;
+  min-width: 400px;
+}
+
+.modal-content img{
+  width: 100%;
+}
+
+.modal-content .dive-site{
+  text-align: center;
+}
+
+.modal-content li{
+  width: 90%;
+  margin: auto;
+}
+.modal-content .dive-location{
+  text-align: center;
+  border-bottom: 1px solid #9B9B9B;
+}
+
+.modal-content .dive-notes{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #4A4A4A;
+}
+
+.center-content{
+  padding: 5px;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  border-bottom: 1px solid #9B9B9B;
+}
+
+.center-content th {
+  width: 30%;
+}
+
+#ruler{
+  width: 20px;
+}
+
+.center-content img{
+  width: 50%;
+}
+
+
+
+
+.dive-details:active .dive-details-modal {
+  display: block
+}
+
+.dive-entry button {
+  vertical-align: top;
+  float: right;
+  border: none;
+  background: none;
+  padding: 3px;
+}
+
+.delete-dive:hover{
+  color: red;
+  font-size: 10pt;
+
+}
+
+.edit-dive:hover{
+  color: blue;
+  font-size: 10pt;
+}
+

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../styles/App.css';
+import '../styles/DiveEntry.css';
 
 class DiveEntry extends Component {
   constructor(){
@@ -26,15 +26,13 @@ class DiveEntry extends Component {
 
    updateDiveEntry(event){
     event.preventDefault();
-    const new_dive = {
-      location: this.location.value,
-      dive_site: this.dive_site.value,
-      depth: this.depth.value,
-      time: this.time.value,
-      visibility: this.visibility.value,
-      notes: this.notes.value
-
-    }
+    const new_dive = this.props.details
+      new_dive.location = this.location.value
+      new_dive.dive_site = this.dive_site.value
+      new_dive.depth = this.depth.value
+      new_dive.time = this.time.value
+      new_dive.visibility = this.visibility.value
+      new_dive.notes = this.notes.value
 
     this.props.editDive(this.props.index, new_dive)
     this.toggleState()
@@ -45,7 +43,7 @@ class DiveEntry extends Component {
       return (
         <form onSubmit={this.updateDiveEntry}>
           <input type="text" ref={(input) => this.location = input} defaultValue={details.location}/>
-          <input type="text" ref={(input) => this.dive_site = input} defaultValue={details.dive_site}/>
+          <input type="text" ref={(input) => this.dive_site = input} defaultValue= {details.dive_site}/>
           <input type="number" ref={(input) => this.depth = input} defaultValue={details.depth}/>
           <input type="number" ref={(input) => this.time = input} defaultValue={details.time}/>
           <input type="number" ref={(input) => this.visibility = input} defaultValue={details.visibility}/>
@@ -58,15 +56,41 @@ class DiveEntry extends Component {
     renderDiveEntry(){
     const { details, index }  = this.props;
       return(
-        <div>
-          <li>Dive No: {index + 1}</li>
-          <li>Dive Site: {details.dive_site}, {details.location}</li>
-          <li>Depth: {details.depth} </li>
-          <li>Time: {details.time} </li>
-          <li>Visability: {details.visibility}</li>
-          <li>Notes: {details.notes} </li>
-          <button onClick={() => this.toggleState()}>Edit</button>
-          <button onClick={() => this.props.removeDive(details, index)}>Remove Dive</button>
+        <div className="dive-entry">
+          <div className="dive-thumb">
+            <img src={details.image}/>
+          </div>
+          <div className="dive-details">
+            <div className="primary-dive-details">
+              <li className="dive-site"> {details.dive_site}</li>
+              <li className="dive-location">{details.location}</li>
+              <li>Dive No: {index + 1}</li>
+            </div>
+            <div className="dive-details-modal">
+              <div className="modal-content">
+                <li>Dive {index + 1}</li>
+                <img src="images/merty_dive.png"/>
+                <li className="dive-site"> {details.dive_site}</li>
+                <li className="dive-location">{details.location}</li>
+                <table className="center-content">
+                  <tr>
+                    <th><img id="ruler"src="images/grey_ruler.png"/></th>
+                    <th><img src="images/grey_watch.png"/></th>
+                    <th><img src="images/grey_mask.png"/></th>
+                  </tr>
+                  <tr>
+                    <th>{details.depth} meters</th>
+                    <th>{details.time} mins</th>
+                    <th>{details.visibility}m vis</th>
+                  </tr>
+                </table>
+                <li className="dive-notes">About the dive</li>
+                <li>{details.notes}</li>
+              </div>
+            </div>
+          </div>
+            <button className="delete-dive" onClick={() => this.props.removeDive(details, index)}>X</button>
+            <button className="edit-dive" onClick={() => this.toggleState()}>Edit</button>
         </div>
       )
     }

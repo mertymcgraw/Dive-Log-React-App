@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20171020165255) do
     t.integer "time", null: false
     t.integer "visibility", default: 0
     t.text "notes", default: ""
+    t.string "image", default: "images/giant_stride.png"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
