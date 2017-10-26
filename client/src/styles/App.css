@@ -53,3 +53,13 @@
   background-color: rgba(0, 0, 0, 0.2);
 
 }
+
+#log-book-header{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  width: 40%;
+  min-width: 400px;
+  margin: auto;
+  background: linear-gradient(#59BED9, #2868B3);
+}

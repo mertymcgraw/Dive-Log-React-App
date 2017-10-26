@@ -38,10 +38,8 @@
 }
 
 
-
 .dive-details-modal{
   background-color: rgba(0,0,0,0.4);
-  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -56,13 +54,30 @@
   margin: 15% auto; 
   width: 40%;
   min-width: 400px;
+  max-width: 500px;
+  padding-bottom: 40px; 
 }
 
 .modal-content img{
   width: 100%;
 }
+#dive-image-container{
+ height: 250px;
+ overflow: hidden;
+  
+}
+.modal-content #dive-number{
+  width: 100%;
+  background: linear-gradient(#59BED9, #2868B3);
+  font-size: 16pt;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
 
 .modal-content .dive-site{
+  padding-top: 10px;
   text-align: center;
 }
 
@@ -72,17 +87,29 @@
 }
 .modal-content .dive-location{
   text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #9B9B9B;
+
+}
+
+.dive-notes{
+  width: 90%;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #9B9B9B;
 }
 
-.modal-content .dive-notes{
-  padding-top: 5px;
-  padding-bottom: 5px;
-  color: #4A4A4A;
+#about-the-dive{
+  color:#4A4A4A;
 }
 
+
+
 .center-content{
-  padding: 5px;
+  font-family: Helvetica;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 90%;
   margin: auto;
   text-align: center;
@@ -91,22 +118,22 @@
 
 .center-content th {
   width: 30%;
+  font-weight: normal;
+}
+
+
+
+.center-content img{
+  width: 40%;
 }
 
 #ruler{
-  width: 20px;
+  width: 15%;
 }
 
-.center-content img{
-  width: 50%;
-}
-
-
-
-
-.dive-details:active .dive-details-modal {
+/*.dive-details:active .dive-details-modal {
   display: block
-}
+}*/
 
 .dive-entry button {
   vertical-align: top;

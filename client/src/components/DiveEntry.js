@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
 
 import '../styles/DiveEntry.css';
+import DiveCard from './DiveCard';
 
 class DiveEntry extends Component {
   constructor(){
     super();
     this.state = {
-      isEditing: false
+      isEditing: false,
+      showingDiveCard: false
     }
 
     this.renderForm = this.renderForm.bind(this);
     this.renderDiveEntry = this.renderDiveEntry.bind(this);
     this.toggleState = this.toggleState.bind(this);
+    this.toggleShowDiveCardState = this.toggleState.bind(this);
     this.updateDiveEntry = this.updateDiveEntry.bind(this);
+    this.renderDiveCard = this.renderDiveCard.bind(this);
+
 
   }
 
+  onClick(e){
+    e.preventDefault();
+    this.setState({showingDiveCard: !this.state.showingDiveCard})
+  }
 
   toggleState(){
     const { isEditing } = this.state;
@@ -37,6 +46,12 @@ class DiveEntry extends Component {
     this.props.editDive(this.props.index, new_dive)
     this.toggleState()
   }
+
+    renderDiveCard(){
+      return(
+        <DiveCard index={this.props.index} details={this.props.details}/>
+        )
+    }
 
     renderForm(){
     const { details }  = this.props;
@@ -60,34 +75,14 @@ class DiveEntry extends Component {
           <div className="dive-thumb">
             <img src={details.image}/>
           </div>
-          <div className="dive-details">
+          <div className="dive-details" onClick={this.onClick.bind(this)}>
+          {this.state.showingDiveCard && <DiveCard index={index} details={details}/>}
             <div className="primary-dive-details">
               <li className="dive-site"> {details.dive_site}</li>
               <li className="dive-location">{details.location}</li>
               <li>Dive No: {index + 1}</li>
             </div>
-            <div className="dive-details-modal">
-              <div className="modal-content">
-                <li>Dive {index + 1}</li>
-                <img src="images/merty_dive.png"/>
-                <li className="dive-site"> {details.dive_site}</li>
-                <li className="dive-location">{details.location}</li>
-                <table className="center-content">
-                  <tr>
-                    <th><img id="ruler"src="images/grey_ruler.png"/></th>
-                    <th><img src="images/grey_watch.png"/></th>
-                    <th><img src="images/grey_mask.png"/></th>
-                  </tr>
-                  <tr>
-                    <th>{details.depth} meters</th>
-                    <th>{details.time} mins</th>
-                    <th>{details.visibility}m vis</th>
-                  </tr>
-                </table>
-                <li className="dive-notes">About the dive</li>
-                <li>{details.notes}</li>
-              </div>
-            </div>
+      
           </div>
             <button className="delete-dive" onClick={() => this.props.removeDive(details, index)}>X</button>
             <button className="edit-dive" onClick={() => this.toggleState()}>Edit</button>
@@ -98,9 +93,12 @@ class DiveEntry extends Component {
   render() {
     
     const { isEditing } = this.state;
+
     return (
+
       <div className="App">
        { isEditing ? this.renderForm() : this.renderDiveEntry() }
+      
       </div>
     );
   }
