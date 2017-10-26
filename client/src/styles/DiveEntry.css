@@ -40,7 +40,6 @@
 
 .dive-details-modal{
   background-color: rgba(0,0,0,0.4);
-  /*display: none;*/ /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;

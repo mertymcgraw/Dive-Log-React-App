@@ -61,7 +61,7 @@ class DiveLog extends Component {
     
     return (
       <div className="App">
-        <p>This is your LogBook</p>
+        <h1 id="log-book-header">Log Book</h1>
         <ul className="list-of-dives">
           { displayDives }
         </ul>
